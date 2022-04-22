@@ -1,0 +1,31 @@
+ [
+    {
+      
+      "sabor": "Xis Galinha",
+      "descricao": "Frango desfiado, queijo, alface, maionese, tomate e catupiry",
+      "foto": "/images/xfrango.png",
+      "preco": 10.0
+    },
+    {
+      
+      "sabor": "Xis Calabresa",
+      "descricao":"Pão, 2 Bifes de Hamb., 2 Queijos, Calabresa, Cebola Picada, Alface, Tomate, Milho verde e Batata Palha.",
+      "foto": "/images/xcalabresa.png",
+      "preco": 10.0
+    },
+    {
+      
+      "sabor": "Xis Salada",
+      "descricao":"Pão, Bife de Hamb., Queijo, Alface, Tomate, Milho Verde e Batata Palha.",
+      "foto": "/images/xsalada.png",
+      "preco": 7.0
+    }, 
+    {
+      
+      "sabor": "Xis Filé",
+      "descricao":"Pão, Filet Mignon, Frango Desfiado com Ovo, Queijo, Presunto, Bacon, Alface, Tomate, Milho Verde e Batata Palha.",
+      "foto": "/images/xcarne.png",
+      "preco": 7.0
+    }
+
+  ]
