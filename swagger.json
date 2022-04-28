@@ -45,7 +45,7 @@
         }
       }
     },
-    "/one-paleta/{id}": {
+    "/one-xis/{id}": {
       "get": {
         "summary": "Busca um xis pelo ID",
         "description": "Rota responsável por buscar um xis pelo ID",
@@ -76,7 +76,7 @@
         }
       }
     },
-    "/create-paleta": {
+    "/create-xis": {
       "post": {
         "summary": "Cadastrar um xis",
         "description": "Rota responsável por cadastrar uma xis",
@@ -118,7 +118,7 @@
         }
       }
     },
-    "/update-paleta/{id}": {
+    "/update-xis/{id}": {
       "put": {
         "summary": "Editar um xis pelo ID",
         "description": "Rota responsável por editar um xis pelo ID",
@@ -168,7 +168,7 @@
         }
       }
     },
-    "/delete-paleta/{id}": {
+    "/delete-xis/{id}": {
       "delete": {
         "summary": "Apagar um xis pelo ID",
         "description": "Rota responsável por apagar um xis pelo ID",
@@ -231,11 +231,11 @@
                 "Carrinho": {
                   "value": [
                     {
-                      "paletaId": "624230fdcd38269205c82197",
+                      "xisId": "624230fdcd38269205c82197",
                       "quantidade": 5
                     },
                     {
-                      "paletaId": "62423c1e618f4a4738a5ee75",
+                      "xisId": "62423c1e618f4a4738a5ee75",
                       "quantidade": 2
                     }
                   ]
@@ -302,7 +302,7 @@
       "Carrinho": {
         "type": "object",
         "properties": {
-          "paletaId": {
+          "xisId": {
             "type": "string"
           },
           "quantidade": {
