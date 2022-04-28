@@ -20,7 +20,7 @@
     }
   ],
   "paths": {
-    "/all-paletas": {
+    "/all-Xis": {
       "get": {
         "summary": "Lista de todas os xis",
         "description": "Rota responsável por listar todas os xis",
@@ -88,7 +88,7 @@
                 "$ref": "#/components/schemas/Xis"
               },
               "examples": {
-                "Paletas": {
+                "Xis": {
                   "value": {
                     "sabor": "Xis Calabresa",
                     "descricao": "Quam vulputate dignissim suspendisse in est ante in nibh mauris.",
@@ -138,7 +138,7 @@
                 "$ref": "#/components/schemas/Xis"
               },
               "examples": {
-                "Paletas": {
+                "Xis": {
                   "value": {
                     "sabor": "Calabresa Editado",
                     "descricao": "Quam vulputate dignissim suspendisse in est ante in nibh mauris.",
@@ -282,7 +282,7 @@
   },
   "components": {
     "schemas": {
-      "Paletas": {
+      "Xis": {
         "type": "object",
         "properties": {
           "sabor": {
