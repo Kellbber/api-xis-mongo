@@ -11,12 +11,13 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000/xis",
-      "description": "API de teste"
+      "url": "https://api-xis-do-japa.onrender.com/xis/api-docs",
+      "description": "API de teste Render"
+      
     },
     {
-      "url": "https://api-elgeladon.herokuapp.com/xis",
-      "description": "API de produção"
+      "url": "http://localhost:3000/xis",
+      "description": "API de teste"
     }
   ],
   "paths": {
