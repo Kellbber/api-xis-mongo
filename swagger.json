@@ -20,7 +20,7 @@
     }
   ],
   "paths": {
-    "/all-Xis": {
+    "/all-xis": {
       "get": {
         "summary": "Lista de todas os xis",
         "description": "Rota responsável por listar todas os xis",
@@ -36,7 +36,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Xis"
+                    "$ref": "#/components/schemas/xis"
                   }
                 }
               }
@@ -68,7 +68,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "$ref": "#/components/schemas/Xis"
+                  "$ref": "#/components/schemas/xis"
                 }
               }
             }
@@ -85,7 +85,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Xis"
+                "$ref": "#/components/schemas/xis"
               },
               "examples": {
                 "Xis": {
@@ -110,7 +110,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "$ref": "#/components/schemas/Xis"
+                  "$ref": "#/components/schemas/xis"
                 }
               }
             }
@@ -135,7 +135,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Xis"
+                "$ref": "#/components/schemas/xis"
               },
               "examples": {
                 "Xis": {
@@ -160,7 +160,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "$ref": "#/components/schemas/Xis"
+                  "$ref": "#/components/schemas/xis"
                 }
               }
             }
