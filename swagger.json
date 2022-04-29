@@ -37,7 +37,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/xis"
+                    "$ref": "#/models/Xis"
                   }
                 }
               }
@@ -69,7 +69,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "$ref": "#/components/schemas/xis"
+                  "$ref": "#/models/xis"
                 }
               }
             }
@@ -86,7 +86,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/xis"
+                "$ref": "#/models/xis"
               },
               "examples": {
                 "Xis": {
@@ -111,7 +111,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "$ref": "#/components/schemas/xis"
+                  "$ref": "#/models/xis"
                 }
               }
             }
@@ -136,7 +136,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/xis"
+                "$ref": "#/models/xis"
               },
               "examples": {
                 "Xis": {
@@ -161,7 +161,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "$ref": "#/components/schemas/xis"
+                  "$ref": "#/models/xis"
                 }
               }
             }
