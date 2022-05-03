@@ -15,7 +15,7 @@
       "description": "API de teste"
     },
     {
-      "url": "https://api-xis-do-japa.onrender.com",
+      "url": "https://api-xis-do-japa.onrender.com/xis",
       "description": "API de produção"
     }
   ],
