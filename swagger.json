@@ -9,190 +9,209 @@
     },
     "version": "1.0.0"
   },
-  "servers": [
-    {
-      "url": "https://api-xis-do-japa.onrender.com/xis/api-docs",
-      "description": "API de teste Render"
-      
-    },
-    {
-      "url": "http://localhost:3000/xis",
-      "description": "API de teste"
-    }
-  ],
-  "paths": {
-    "/all-xis": {
-      "get": {
-        "summary": "Lista de todas os xis",
-        "description": "Rota responsável por listar todas os xis",
-        "tags": ["Xis"],
-        "responses": {
-          "404": {
-            "description": "Not Found"
-          },
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#src/models/Xis"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/one-xis/{id}": {
-      "get": {
-        "summary": "Busca um xis pelo ID",
-        "description": "Rota responsável por buscar um xis pelo ID",
-        "tags": ["Xis"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Id do xis para a busca",
-            "required": true
-          }
-        ],
-        "responses": {
-          "400": {
-            "description": "Bad Request"
-          },
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "$ref": "#src/models/Xis"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/create-xis": {
-      "post": {
-        "summary": "Cadastrar um xis",
-        "description": "Rota responsável por cadastrar uma xis",
-        "tags": ["Xis"],
-        "requestBody": {
+"servers": [
+  {
+    "url": "http://localhost:3000/xis",
+    "description": "API de teste"
+  },
+  {
+    "url": "https://api-xis-do-japa.onrender.com/xis",
+    "description": "API de produção"
+  }
+],
+"paths": {
+  "/all-xis": {
+    "get": {
+      "summary": "Lista de todas os xis",
+      "description": "Rota responsável por listar todas os xis",
+      "tags": ["Xis"],
+      "responses": {
+        "404": {
+          "description": "Not Found"
+        },
+        "200": {
+          "description": "OK",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#src/models/Xis"
-              },
-              "examples": {
-                "Xis": {
-                  "value": {
-                    "sabor": "Xis Calabresa",
-                    "descricao": "Quam vulputate dignissim suspendisse in est ante in nibh mauris.",
-                    "foto": "./assets/images/xcalabresa.png",
-                    "preco": 10
-                  }
+                "type": "array",
+                "items": {
+                  "$ref": "#/models/Xis"
                 }
               }
             }
-          }
-        },
-        "responses": {
-          "400": {
-            "description": "Bad Request"
-          },
-          "201": {
-            "description": "Created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "$ref": "#src/models/Xis"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/update-xis/{id}": {
-      "put": {
-        "summary": "Editar um xis pelo ID",
-        "description": "Rota responsável por editar um xis pelo ID",
-        "tags": ["Xis"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Id do xis para a busca",
-            "required": true
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#src/models/Xis"
-              },
-              "examples": {
-                "Xis": {
-                  "value": {
-                    "sabor": "Calabresa Editado",
-                    "descricao": "Quam vulputate dignissim suspendisse in est ante in nibh mauris.",
-                    "foto": "./assets/images/xcalabresa.png",
-                    "preco": 7
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "400": {
-            "description": "Bad Request"
-          },
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "$ref": "#src/models/Xis"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/delete-xis/{id}": {
-      "delete": {
-        "summary": "Apagar um xis pelo ID",
-        "description": "Rota responsável por apagar um xis pelo ID",
-        "tags": ["Xis"],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "Id do xis para deleção",
-            "required": true
-          }
-        ],
-        "responses": {
-          "400": {
-            "description": "Bad Request"
-          },
-          "200": {
-            "description": "OK"
           }
         }
       }
     }
-
+  },
+  "/one-xis/{id}": {
+    "get": {
+      "summary": "Busca um xis pelo ID",
+      "description": "Rota responsável por buscar um xis pelo ID",
+      "tags": ["Xis"],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "Id do xis para a busca",
+          "required": true
+        }
+      ],
+      "responses": {
+        "400": {
+          "description": "Bad Request"
+        },
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/models/Xis"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/create-xis": {
+    "post": {
+      "summary": "Cadastrar um xis",
+      "description": "Rota responsável por cadastrar um xis",
+      "tags": ["Xis"],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/models/Xis"
+            },
+            "examples": {
+              "Paletas": {
+                "value": {
+                  "sabor": "Xis de Calabresa",
+                  "descricao": "Quam vulputate dignissim suspendisse in est ante in nibh mauris.",
+                  "foto": "./assets/images/xcalabresa.png",
+                  "preco": 4
+                }
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "400": {
+          "description": "Bad Request"
+        },
+        "201": {
+          "description": "Created",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#models/Xis"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/update-xis/{id}": {
+    "put": {
+      "summary": "Editar um xis pelo ID",
+      "description": "Rota responsável por editar um xis pelo ID",
+      "tags": ["Xis"],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "Id do xis para a busca",
+          "required": true
+        }
+      ],
+      "requestBody": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#models/Xis"
+            },
+            "examples": {
+              "Paletas": {
+                "value": {
+                  "sabor": "Xis Calabresa Editado",
+                  "descricao": "Quam vulputate dignissim suspendisse in est ante in nibh mauris.",
+                  "foto": "./assets/images/xcalabresa.png",
+                  "preco": 7
+                }
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "400": {
+          "description": "Bad Request"
+        },
+        "200": {
+          "description": "OK",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#models/Xis"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "/delete-xis/{id}": {
+    "delete": {
+      "summary": "Apagar um xis pelo ID",
+      "description": "Rota responsável por apagar um xis pelo ID",
+      "tags": ["Xis"],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "Id do xis para deleção",
+          "required": true
+        }
+      ],
+      "responses": {
+        "400": {
+          "description": "Bad Request"
+        },
+        "200": {
+          "description": "OK"
+        }
+      }
+    }
   }
 
+},
+"components": {
+  "schemas": {
+    "Xis": {
+      "type": "object",
+      "properties": {
+        "sabor": {
+          "type": "string"
+        },
+        "descricao": {
+          "type": "string"
+        },
+        "foto": {
+          "type": "string"
+        },
+        "preco": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}
 }
