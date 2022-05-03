@@ -69,7 +69,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "$ref": "#src/models/xis"
+                  "$ref": "#src/models/Xis"
                 }
               }
             }
@@ -86,7 +86,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#src/models/xis"
+                "$ref": "#src/models/Xis"
               },
               "examples": {
                 "Xis": {
@@ -111,7 +111,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "$ref": "#src/models/xis"
+                  "$ref": "#src/models/Xis"
                 }
               }
             }
@@ -136,7 +136,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#src/models/xis"
+                "$ref": "#src/models/Xis"
               },
               "examples": {
                 "Xis": {
@@ -161,7 +161,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "$ref": "#src/models/xis"
+                  "$ref": "#src/models/Xis"
                 }
               }
             }
