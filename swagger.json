@@ -9,209 +9,307 @@
     },
     "version": "1.0.0"
   },
-"servers": [
-  {
-    "url": "http://localhost:3000/xis",
-    "description": "API de teste"
-  },
-  {
-    "url": "https://api-xis-do-japa.onrender.com/xis",
-    "description": "API de produção"
-  }
-],
-"paths": {
-  "/all-xis": {
-    "get": {
-      "summary": "Lista de todas os xis",
-      "description": "Rota responsável por listar todas os xis",
-      "tags": ["Xis"],
-      "responses": {
-        "404": {
-          "description": "Not Found"
-        },
-        "200": {
-          "description": "OK",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/models/Xis"
+  "servers": [
+    {
+      "url": "http://localhost:3000/xis",
+      "description": "API de teste"
+    },
+    {
+      "url": "https://api-xis-do-japa.onrender.com",
+      "description": "API de produção"
+    }
+  ],
+  "paths": {
+    "/all-xis": {
+      "get": {
+        "summary": "Lista de todas os xis",
+        "description": "Rota responsável por listar todas os xis",
+        "tags": ["Xis"],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Xis"
+                  }
                 }
               }
             }
           }
         }
       }
-    }
-  },
-  "/one-xis/{id}": {
-    "get": {
-      "summary": "Busca um xis pelo ID",
-      "description": "Rota responsável por buscar um xis pelo ID",
-      "tags": ["Xis"],
-      "parameters": [
-        {
-          "name": "id",
-          "in": "path",
-          "description": "Id do xis para a busca",
-          "required": true
-        }
-      ],
-      "responses": {
-        "400": {
-          "description": "Bad Request"
-        },
-        "200": {
-          "description": "OK",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "$ref": "#/models/Xis"
+    },
+    "/one-xis/{id}": {
+      "get": {
+        "summary": "Busca um xis pelo ID",
+        "description": "Rota responsável por buscar um xis pelo ID",
+        "tags": ["Xis"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id do xis para a busca",
+            "required": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Xis"
+                }
               }
             }
           }
         }
       }
-    }
-  },
-  "/create-xis": {
-    "post": {
-      "summary": "Cadastrar um xis",
-      "description": "Rota responsável por cadastrar um xis",
-      "tags": ["Xis"],
-      "requestBody": {
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#/models/Xis"
+    },
+    "/create-xis": {
+      "post": {
+        "summary": "Cadastrar um xis",
+        "description": "Rota responsável por cadastrar um xis",
+        "tags": ["Xis"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Xis"
+              },
+              "examples": {
+                "Xis": {
+                  "value": {
+                    "sabor": "Xis de Carne",
+                    "descricao": "Quam vulputate dignissim suspendisse in est ante in nibh mauris.",
+                    "foto": "/images/xcarne.png",
+                    "preco": 4
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Xis"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/update-xis/{id}": {
+      "put": {
+        "summary": "Editar um xis pelo ID",
+        "description": "Rota responsável por editar um xis pelo ID",
+        "tags": ["Xis"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id do xis para a busca",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Xis"
+              },
+              "examples": {
+                "Xis": {
+                  "value": {
+                    "sabor": "Xis Carne Editado",
+                    "descricao": "Quam vulputate dignissim suspendisse in est ante in nibh mauris.",
+                    "foto": "/images/xcarne.png",
+                    "preco": 7
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Xis"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/delete-xis/{id}": {
+      "delete": {
+        "summary": "Apagar um xis pelo ID",
+        "description": "Rota responsável por apagar um xis pelo ID",
+        "tags": ["Xis"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id do xis para deleção",
+            "required": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/all-carrinho": {
+      "get": {
+        "summary": "Lista de todos os itens do carrinho",
+        "description": "Rota responsável por listar todos os itens do carrinho",
+        "tags": ["Carrinho"],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Carrinho"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/create-carrinho": {
+      "post": {
+        "summary": "Cadastrar vários itens no carrinho",
+        "description": "Rota responsável por cadastrar vários itens no carrinho",
+        "tags": ["Carrinho"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Carrinho"
+              },
+              "examples": {
+                "Carrinho": {
+                  "value": [
+                    {
+                      "paletaId": "624230fdcd38269205c82197",
+                      "quantidade": 5
+                    },
+                    {
+                      "paletaId": "62423c1e618f4a4738a5ee75",
+                      "quantidade": 2
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Carrinho"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/finish-carrinho": {
+        "delete": {
+          "summary": "Apagar todos os itens do carrinho",
+          "description": "Rota responsável por apagar todos os itens do carrinho",
+          "tags": ["Carrinho"],
+          "responses": {
+            "400": {
+              "description": "Bad Request"
             },
-            "examples": {
-              "Paletas": {
-                "value": {
-                  "sabor": "Xis de Calabresa",
-                  "descricao": "Quam vulputate dignissim suspendisse in est ante in nibh mauris.",
-                  "foto": "./assets/images/xcalabresa.png",
-                  "preco": 4
-                }
-              }
+            "200": {
+              "description": "OK"
             }
+          }
+        }
+      }
+  },
+  "components": {
+    "schemas": {
+      "Xis": {
+        "type": "object",
+        "properties": {
+          "sabor": {
+            "type": "string"
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "foto": {
+            "type": "string"
+          },
+          "preco": {
+            "type": "number"
           }
         }
       },
-      "responses": {
-        "400": {
-          "description": "Bad Request"
-        },
-        "201": {
-          "description": "Created",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "$ref": "#models/Xis"
-              }
-            }
+      "Carrinho": {
+        "type": "object",
+        "properties": {
+          "paletaId": {
+            "type": "string"
+          },
+          "quantidade": {
+            "type": "number"
           }
-        }
-      }
-    }
-  },
-  "/update-xis/{id}": {
-    "put": {
-      "summary": "Editar um xis pelo ID",
-      "description": "Rota responsável por editar um xis pelo ID",
-      "tags": ["Xis"],
-      "parameters": [
-        {
-          "name": "id",
-          "in": "path",
-          "description": "Id do xis para a busca",
-          "required": true
-        }
-      ],
-      "requestBody": {
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "#models/Xis"
-            },
-            "examples": {
-              "Paletas": {
-                "value": {
-                  "sabor": "Xis Calabresa Editado",
-                  "descricao": "Quam vulputate dignissim suspendisse in est ante in nibh mauris.",
-                  "foto": "./assets/images/xcalabresa.png",
-                  "preco": 7
-                }
-              }
-            }
-          }
-        }
-      },
-      "responses": {
-        "400": {
-          "description": "Bad Request"
-        },
-        "200": {
-          "description": "OK",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "$ref": "#models/Xis"
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "/delete-xis/{id}": {
-    "delete": {
-      "summary": "Apagar um xis pelo ID",
-      "description": "Rota responsável por apagar um xis pelo ID",
-      "tags": ["Xis"],
-      "parameters": [
-        {
-          "name": "id",
-          "in": "path",
-          "description": "Id do xis para deleção",
-          "required": true
-        }
-      ],
-      "responses": {
-        "400": {
-          "description": "Bad Request"
-        },
-        "200": {
-          "description": "OK"
         }
       }
     }
   }
-
-},
-"components": {
-  "schemas": {
-    "Xis": {
-      "type": "object",
-      "properties": {
-        "sabor": {
-          "type": "string"
-        },
-        "descricao": {
-          "type": "string"
-        },
-        "foto": {
-          "type": "string"
-        },
-        "preco": {
-          "type": "number"
-        }
-      }
-    }
-  }
-}
 }

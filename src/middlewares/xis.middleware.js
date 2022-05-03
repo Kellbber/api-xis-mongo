@@ -23,10 +23,24 @@ const xis = req.body;
   }
     next();
 };
+const validObjectBodyCarrinho = (req, res, next) =>{
 
+const carrinho = req.body;
+
+carrinho.forEach((item)=>{
+  if(!item || !item.xisId || !item.quantidade){
+    return res
+      .status(400)
+      .send({ message: 'Envie todos os campos preenchidos!' });
+  }
+});
+
+  next();
+}
 
 module.exports = {
     validId,
     validObjectBody,
+    validObjectBodyCarrinho,
    
   }
